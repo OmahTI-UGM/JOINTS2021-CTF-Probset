@@ -1,5 +1,5 @@
 # docker build . -t joints2021-pwn2
-# docker run --rm -it -p 0.0.0.0:22021:5000 --name joints2021-pwn2 joints2021-pwn2
+# docker run --rm -it -p 0.0.0.0:22222:5000 --name joints2021-pwn2 joints2021-pwn2
 FROM ubuntu:18.04
 EXPOSE 5000
 RUN apt-get update
