@@ -17,8 +17,5 @@ Berikan hint jika belum ada satupun tim yang berhasil menyelesaikan chall ini de
 # Difficulty
 Medium/Hard
 
-# Difficulty
-Medium/Hard
-
 # Author
 ZeroDiv
