@@ -15,3 +15,6 @@ Ez/Medium
 
 # Author
 ZeroDiv
+
+# Flag
+JOINST21{f9441d99e84fec3543cb056f386dc65b}
