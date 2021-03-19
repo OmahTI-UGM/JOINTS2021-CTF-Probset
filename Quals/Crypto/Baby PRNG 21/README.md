@@ -14,3 +14,6 @@ Medium
 
 # Author
 ZeroDiv
+
+# Flag
+JOINST21{s4ntuy_cUm4_lcGs_bi4sa_0m}

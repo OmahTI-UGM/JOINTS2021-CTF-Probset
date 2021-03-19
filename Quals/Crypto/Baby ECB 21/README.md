@@ -19,3 +19,6 @@ Medium/Hard
 
 # Author
 ZeroDiv
+
+# Flag
+JOINST21{ECB_uNknowN_1NpUt_p0s1t10n}

@@ -14,3 +14,6 @@ Medium/Hard
 
 # Author
 ZeroDiv
+
+# Flag
+JOINST21{R4nS0mW4re}
