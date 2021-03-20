@@ -4,7 +4,7 @@ I'm not quite satisfied with how the previous flag checker program was written. 
 
 # Note untuk panitia
 
--
+\-
 
 # Flow singkat solver
 

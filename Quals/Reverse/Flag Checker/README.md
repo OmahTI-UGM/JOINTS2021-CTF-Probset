@@ -4,7 +4,7 @@ I created a ~~password~~ flag checker program. Try to understand it's implementa
 
 # Note untuk panitia
 
--
+\-
 
 # Flow singkat solver
 
