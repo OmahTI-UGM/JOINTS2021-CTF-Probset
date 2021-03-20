@@ -46,7 +46,7 @@ def __main__():
 	if('local' in argv):
 		p = process('./chal', env={"LD_PRELOAD":"../libc-2.27.so"})
 	else:
-		p = remote('192.168.1.9', 22021)
+		p = remote('192.168.1.9', 22223)
 
 	if('gdb' in argv):
 		gdbscript = '''
