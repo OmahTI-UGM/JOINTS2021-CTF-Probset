@@ -45,10 +45,10 @@ def decryptMessage(cipher,key):
 
 for i in range(100):
     key = open('../chall/key/key{0}'.format(i), 'rb').read()
-    cipher = "b69c57faf883dcd0dfd9bb646c4f4fcbe9eba41a".decode('hex')
+    cipher = "30435993e440b462fc33493bef977c0afa93db54".decode('hex')
     cipher = xor(cipher, key)
     cipher = cipher[::-1]
     plain = decryptMessage(cipher,'32145')
-    if 'JOINST21' in plain:
+    if 'JOINTS21' in plain:
         print(plain)
         break
