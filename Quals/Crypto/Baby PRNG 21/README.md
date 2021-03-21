@@ -17,3 +17,6 @@ ZeroDiv
 
 # Flag
 JOINST21{s4ntuy_cUm4_lcGs_bi4sa_0m}
+
+# Format Flag
+Untuk chall ini terdapat typo dari format flag, jadi diinformasikan ke peserta bahwa format flag untuk chall ini JOINST21{.....} bukan JOINTS21{.....}

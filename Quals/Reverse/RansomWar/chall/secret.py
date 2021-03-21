@@ -1,1 +1,1 @@
-flag="JOINST21{R4nS0mW4re}"
+flag="JOINTS21{R4nS0mW4re}"
