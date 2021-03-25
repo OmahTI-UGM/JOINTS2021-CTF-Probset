@@ -4,4 +4,4 @@ Tujuannya chall ini adalah melakukan RCE dengan memanfaatkan isi file kemudian m
 1. List directory
 Manfaatkan fungsi ls untuk mencari directory flag
 2. Sendpayload
-Hasil dari listring directory disimpan pada file tertentu kemudian bisa memanfaatkan curl untuk mengrim request via requestbin atau semisal.
+Hasil dari listing directory disimpan pada file tertentu kemudian bisa memanfaatkan curl untuk mengrim request via requestbin atau semisal.
