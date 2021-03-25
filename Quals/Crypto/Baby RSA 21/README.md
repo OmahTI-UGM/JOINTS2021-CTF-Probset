@@ -2,7 +2,7 @@
 **Baby RSA 21**
 
 # Deskripsi
-Karena dedlen yang mepet, akhirnya probset hanya membuat soal RSA pasaran yang sedikit dimodifikasi. Langsung garap aja gan soalnya.
+Karena dedlen yang mepet, akhirnya probset hanya membuat soal RSA pasaran yang sedikit dimodifikasi.
 
 # Hint
 
@@ -10,7 +10,7 @@ Karena dedlen yang mepet, akhirnya probset hanya membuat soal RSA pasaran yang s
 Peserta hanya diberikan file chall.py
 
 # Difficulty
-Medium
+Ez/Medium
 
 # Author
 ZeroDiv
