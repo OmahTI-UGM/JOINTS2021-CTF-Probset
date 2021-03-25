@@ -16,4 +16,4 @@ Medium/Hard
 ZeroDiv
 
 # Flag
-JOINST21{R4nS0mW4re}
+JOINTS21{R4nS0mW4re}
