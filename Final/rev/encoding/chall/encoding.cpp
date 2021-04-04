@@ -35,7 +35,8 @@ string enc(string x){
 int main(){
 	string x;
 	string res;
-	string test="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+	// string test="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+	string test="o5Rkw4VEt1rxYiT/vB2lg6XfjQHndANGb3+JmFc8MUSPOKZ0qC7DpaLzsue9WyIh";
 	//"\x0d\x28\xc9\x21\x60\xe6\x87\x80\x5f\xca\x42\x4c\x4a\x3a\x0a\xf5\x23\x67\x8f\xed\xc7\x51\x13\xbc\x9b\x68\x54\x97\x1e\x41\xe0\xea\x90\x08\x50\x25\x6f\x44\xfc\x6c\x69\xaa\x6b\xb8\xe7\x02\x48\x2b\xe9\x3d\xc8\x70\xc3\x61\x2c\xf9\x72\x3b\x98\x7a\x81\xfb\xff\x03";
 	cin >> x ;
 	vector<string> blocks = split(x);

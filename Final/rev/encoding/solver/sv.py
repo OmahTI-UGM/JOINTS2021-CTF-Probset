@@ -5,9 +5,9 @@ def dec(x):
     fl = chr(a) + chr(b) + chr(c)
     return fl
 
-T = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+T = "o5Rkw4VEt1rxYiT/vB2lg6XfjQHndANGb3+JmFc8MUSPOKZ0qC7DpaLzsue9WyIh"
 # enc_fl = "BBsafGUoUV4ZAjABDj0CMAQNPgEzBRIzESoLFDEUHCg1fUZG"
-enc_fl="RnNaYkl7Z0kzRX4VQEwuHRYYOCw8SVB9X0wrWW1/X09INCRI"
+enc_fl="j8bE/VKcjcULkCm6jmdYxl4rtbidR2vNd+CdRFuawXuAHodliRQP"
 #enc_fl="Hx8fcG9w"
 enc_fl = [list(enc_fl[i:i+4]) for i in range(0, len(enc_fl), 4)]
 for i in range(len(enc_fl)):
