@@ -4,7 +4,9 @@ Who doesn't love chicken?
 
 # Note untuk panitia
 
-\-
+- isi folder `attachement` diberikank kepada peserta
+- port chal: `22223`
+- buat run, masuk ke folder source, terus `docker-compose up -d`
 
 # Flow singkat solver
 

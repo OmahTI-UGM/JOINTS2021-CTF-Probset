@@ -4,7 +4,9 @@ A simple program to get you started
 
 # Note untuk panitia
 
-\-
+- isi folder `attachement` diberikank kepada peserta
+- port chal: `22221`
+- buat run, masuk ke folder source, terus `docker-compose up -d`
 
 # Flow singkat solver
 
