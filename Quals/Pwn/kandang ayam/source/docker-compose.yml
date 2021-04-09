@@ -7,3 +7,4 @@ services:
       context: .
     ports:
       - '22223:5000'
+    restart: always
