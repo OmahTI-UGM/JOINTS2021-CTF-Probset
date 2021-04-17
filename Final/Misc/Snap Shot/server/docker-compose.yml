@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  wrapper:
+    build: wrapper
+    container_name: wrapper
+    hostname: wrapper
+    ports:
+      - 22222:4444
+    networks:
+      - snapshot-network
+
+  snapshot:
+    build: service
+    deploy:
+      replicas: 15
+      resources:
+        reservations:
+          cpus: '0.15'
+          memory: 100M
+        limits:
+          cpus: '0.25'
+          memory: 150M
+    restart: on-failure
+    networks:
+      - snapshot-network
+    cap_add:
+      - NET_ADMIN
+
+networks:
+  snapshot-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.31.0.0/16
