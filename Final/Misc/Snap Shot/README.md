@@ -25,7 +25,7 @@ Snap Shot
     ```
 - Execute `display` on `test.png` using `:4000` as virtual X11 display & `joints` user. These step can also be replaced by using an external remote display from a Public IP
     ```sh
-    $ DISPLAY=:4000 sudo -u joints display &
+    $ DISPLAY=:4000 sudo -u joints display test.png &
     ```
 - Forward X11 display as VNC traffic
     ```sh
