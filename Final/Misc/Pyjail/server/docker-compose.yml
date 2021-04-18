@@ -1,0 +1,7 @@
+version: '3'
+services:
+  pyjail:
+    build: .
+    restart: on-failure
+    ports:
+      - 22223:5000
