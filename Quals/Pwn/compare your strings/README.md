@@ -4,7 +4,9 @@ A program in which you can compare two strings and see whether they are the same
 
 # Note untuk panitia
 
-\-
+- isi folder `attachement` diberikank kepada peserta
+- port chal: `22222`
+- buat run, masuk ke folder source, terus `docker-compose up -d`
 
 # Flow singkat solver
 
