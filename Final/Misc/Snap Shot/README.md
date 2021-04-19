@@ -3,7 +3,7 @@ Snap Shot
 
 ## Deskripsi Soal
 
-> I was told by my someone that he bought me a gift. Unfortunately, I need to have a proper access to grab it <br><br>`nc port 22222`<br><br>Note: The service used Paramiko SSH module instead of traditional SSH prompt
+> I was told by someone that he bought me a gift. Unfortunately, I need to have a proper access to grab it <br><br>`nc port 22222`<br><br>Note: The service used Paramiko SSH module instead of traditional SSH prompt
 
 ---
 ## Proof of Concept

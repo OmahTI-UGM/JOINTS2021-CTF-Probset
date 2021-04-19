@@ -19,21 +19,21 @@ API_ENDPOINT = {
 }
 
 finalist = {
-    5: (1,'%zqIH@#eo#1YT6pCjQwyQCiO0'),
-    9: (2,'BigBrainGurls'),
-    10: (3,'Brahmastra'),
-    17: (4,'No Rush & Relax'),
-    18: (5,'NoBrainBois'),
-    21: (6,'Panitia'),
-    23: (7,'Rahasia'),
-    25: (8,'SHOCKER'),
-    27: (9,'Sopan Kh Begitu??'),
-    30: (10,'Terlantarkan'),
-    32: (11,'Walkie O Talkie'),
-    34: (12,'ctf terakhir pas smk'),
-    35: (13,'gatao aja lah'),
-    36: (14,'jeopardized'),
-    43: (15,'tim wangy wangy')
+    53: (1,'%zqIH@#eo#1YT6pCjQwyQCiO0'),
+    54: (2,'BigBrainGurls'),
+    55: (3,'Brahmastra'),
+    56: (4,'No Rush & Relax'),
+    57: (5,'NoBrainBois'),
+    58: (6,'Panitia'),
+    59: (7,'Rahasia'),
+    60: (8,'SHOCKER'),
+    61: (9,'Sopan Kh Begitu??'),
+    62: (10,'Terlantarkan'),
+    63: (11,'Walkie O Talkie'),
+    64: (12,'ctf terakhir pas smk'),
+    65: (13,'gatao aja lah'),
+    66: (14,'jeopardized'),
+    67: (15,'tim wangy wangy')
 }
 
 
