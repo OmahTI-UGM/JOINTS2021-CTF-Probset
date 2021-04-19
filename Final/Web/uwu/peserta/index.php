@@ -18,7 +18,7 @@ if (getUser() == null) {
     <h1>uwu</h1>
     <img src="/static/irisan-kentang/uwu/cute_bomber.png" alt="" width="200px">
     <?php if (getUser()['is_admin']): ?>
-        <p>FLAG: JOINTS21{misconfig_uwu_wangy_wangy}</p>
+        <p>FLAG: JOINTS21{redacted_ehe}</p>
     <?php else: ?>
         <p>Hanya admin yang dapat melihat flag</p>
     <?php endif; ?>
