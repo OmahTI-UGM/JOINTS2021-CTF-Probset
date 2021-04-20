@@ -3,7 +3,7 @@ Pyjail
 
 ## Deskripsi Soal
 
-> `nc port 22223`
+> `nc ip port`
 
 ---
 ## Proof of Concept
