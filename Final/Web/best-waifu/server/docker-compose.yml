@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile.app
     restart: on-failure
+    depends_on:
+      - waifu-terbaik-mongo
     networks:
       - waifu-terbaik-network
 
@@ -14,7 +16,7 @@ services:
       dockerfile: Dockerfile.nginx
     restart: on-failure
     ports:
-      - "10001:80"
+      - "10003:80"
     networks:
       - waifu-terbaik-network
 
