@@ -1,8 +1,11 @@
 #!/usr/bin/env python
+import re
 import os
 import sys
 import enum
 
+class A(enum.Enum):
+    attr = None
 class Unbuffered(object):
     def __init__(self, stream):
         self.stream = stream
@@ -15,24 +18,30 @@ class Unbuffered(object):
     def __getattr__(self, attr):
         return getattr(self.stream, attr)
 
-class A(enum.Enum):
-    attr = None
+charBanned = re.escape('"!#$&\'()*+-/:<=>?@\^`{|}~')
+wordBanned = [
+    'import', 'enum', 'word', 'char', 'eval', 'fork',
+    'exec', 'open', 'locals', 'globals', 'banned', 'dir',
+    'print', 'compile', 'input', 'exit', 'quit',
+    'unicode', 'setattr', 'getattr', 'repr', 'len',
+    'file', 'builtins', 'name', 'doc', 'base',
+    'class', 'subclasses', 'mro', 'init', 'main'
+]
 
-banned = list('"!#$&\'()*+-/:<=>?@\^`{|}~')
-banned += ['import', 'enum', 'banned', 'eval', 'fork']
-banned += ['exec', 'open', 'locals', 'globals', 'dir']
-banned += ['__file__', '__builtins__', '__doc__']
+charBanned = '[%s]' % (charBanned)
+wordBanned = '|'.join('(%s)' % (_) for _ in wordBanned)
 
 stdout = Unbuffered(sys.stdout)
 stdout.write('>>> ')
-msg = raw_input()
+lines = raw_input()
 
-for b in banned:
-    if b in msg:
-        stdout.writelines('Illegal character!')
-        sys.exit()
+if re.findall(charBanned, lines):
+    raise Exception('Bad character detected!')
+
+if re.findall(wordBanned, lines, re.I):
+    raise Exception('Bad word detected!')
 
 try:
-    exec(msg)
+    exec(lines)
 except:
     pass
