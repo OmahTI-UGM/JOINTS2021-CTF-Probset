@@ -13,18 +13,14 @@ RUN apt-get update && apt-get install -y \
     git \
     zlib1g-dev \
     libzip-dev \
-    curl \
-    autoconf pkg-config libssl-dev
-
-RUN pecl install mongodb
-RUN docker-php-ext-install bcmath
-RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
+    libsqlite3-dev \
+    curl
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install extensions
-RUN docker-php-ext-install mbstring zip exif pcntl
+RUN docker-php-ext-install pdo_sqlite mbstring zip exif pcntl
 
 COPY ./app /var/www
 
@@ -33,18 +29,21 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN cd /var/www && composer update
 
-COPY ./entrypoint.sh /entrypoint.sh
+RUN rm bank_joints_jaya.db
+RUN php init.php
+RUN rm init.php
 
 # Add user for application
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
-RUN mv init.php /tmp/init.php
-RUN chown www:www /tmp/init.php
+RUN chown www:www bank_joints_jaya.db
+RUN chown www:www .
+RUN chmod 777 bank_joints_jaya.db
 
 # Change current user to www
 USER www
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["php-fpm"]

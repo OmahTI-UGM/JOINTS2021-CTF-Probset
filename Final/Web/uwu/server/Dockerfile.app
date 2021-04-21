@@ -27,7 +27,7 @@ COPY ./app /var/www
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN cd /var/www && composer install
+RUN cd /var/www && composer update
 
 RUN rm inidatabase.db
 RUN php init.php

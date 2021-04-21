@@ -16,7 +16,7 @@ services:
       dockerfile: Dockerfile.nginx
     restart: on-failure
     ports:
-      - "10001:80"
+      - "10002:80"
     networks:
       - uwu-network
     volumes:
