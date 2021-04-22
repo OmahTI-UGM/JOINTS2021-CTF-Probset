@@ -1,9 +1,9 @@
-version: '3.7'
+version: '3.9'
 
 services:
   wrapper:
     build: wrapper
-    container_name: wrapper
+    image: server_wrapper:latest
     hostname: wrapper
     ports:
       - 22222:4444
@@ -12,16 +12,20 @@ services:
 
   snapshot:
     build: service
+    image: server_snapshot:latest
     deploy:
+      mode: replicated
+      endpoint_mode: dnsrr
       replicas: 15
       resources:
         reservations:
-          cpus: '0.15'
+          cpus: '0.05'
           memory: 100M
         limits:
-          cpus: '0.25'
-          memory: 150M
-    restart: on-failure
+          cpus: '0.1'
+          memory: 128M
+      restart_policy:
+        condition: any
     networks:
       - snapshot-network
     cap_add:

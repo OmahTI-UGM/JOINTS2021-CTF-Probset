@@ -3,7 +3,7 @@ Snap Shot
 
 ## Deskripsi Soal
 
-> I was told by someone that he bought me a gift. Unfortunately, I need to have a proper access to grab it <br><br>`nc port 22222`<br><br>Note: The service used Paramiko SSH module instead of traditional SSH prompt
+> I was told by someone that he bought me a gift. Unfortunately, I need to have a proper access to grab it <br><br>`nc ip port`<br><br>Note: The service used Paramiko SSH module instead of traditional SSH prompt
 
 ---
 ## Proof of Concept
@@ -58,8 +58,8 @@ Note, service nya masih hasil `trial & error`, jadi kemungkinan bisa broken sewa
 # Build
 $ docker-compose build
 
-# Deploy, kalo kena notif connection pool, run lagi :v
-$ COMPOSE_PARALLEL_LIMIT=100 docker-compose --compatibility up -d
+# Deploy pake swarm ya, udah saya kecilin spec nya :v
+$ docker stack deploy --compose-file docker-compose.yml snapshot
 ```
 
 ## Flag

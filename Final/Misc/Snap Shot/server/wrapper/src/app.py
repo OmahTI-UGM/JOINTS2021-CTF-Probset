@@ -1,12 +1,33 @@
 #!/usr/bin/env python3
-
+from nslookup import Nslookup
 from sys import stdout
 
+import logging
 import requests
 import paramiko
 import re
 import json
 
+logging.basicConfig(level=logging.DEBUG)
+
+FINALIST = [
+    '%zqIH@#eo#1YT6pCjQwyQCiO0',
+    'BigBrainGurls',
+    'Brahmastra',
+    'No Rush & Relax',
+    'NoBrainBois',
+    'Panitia',
+    'Rahasia',
+    'SHOCKER',
+    'Sopan Kh Begitu??',
+    'Terlantarkan',
+    'Walkie O Talkie',
+    'ctf terakhir pas smk',
+    'gatao aja lah',
+    'jeopardized',
+    'tim wangy wangy'
+]
+CTFd_URL = 'https://ctf.joints.id'
 API_ENDPOINT = {
     'login': '/login',
     'chall': '/api/v1/challenges',
@@ -15,25 +36,7 @@ API_ENDPOINT = {
     'scoreboard': '/api/v1/scoreboard',
     'teams': '/api/v1/teams',
     'users': '/api/v1/users',
-    'me': '/api/v1/users/me'
-}
-
-finalist = {
-    53: (1,'%zqIH@#eo#1YT6pCjQwyQCiO0'),
-    54: (2,'BigBrainGurls'),
-    55: (3,'Brahmastra'),
-    56: (4,'No Rush & Relax'),
-    57: (5,'NoBrainBois'),
-    58: (6,'Panitia'),
-    59: (7,'Rahasia'),
-    60: (8,'SHOCKER'),
-    61: (9,'Sopan Kh Begitu??'),
-    62: (10,'Terlantarkan'),
-    63: (11,'Walkie O Talkie'),
-    64: (12,'ctf terakhir pas smk'),
-    65: (13,'gatao aja lah'),
-    66: (14,'jeopardized'),
-    67: (15,'tim wangy wangy')
+    'me': '/api/v1/teams/me'
 }
 
 
@@ -67,6 +70,7 @@ class Auth(object):
         try:
             self.login()
         except:
+            logging.error(f'Incorrect CTFd credentials for {self.username}')
             stdout.writelines('\n[x] Incorrect username/password')
             exit()
 
@@ -94,17 +98,21 @@ class Auth(object):
 
     def get_user_team(self):
         target_url = self.url + API_ENDPOINT.get('me')
-        response = self.ses.get(target_url).json()
+        response = self.ses.get(target_url)
 
         try:
-            json_data = response.get('data')
-            team_id = json_data['team_id']
-            host, team_name = finalist[int(team_id)]
+            json_data = response.json().get('data')
+            team_name = json_data['name']
+            
+            if team_name not in FINALIST:
+                logging.error(f'{self.username} is not a Finalist')
+                raise Exception
         except:
             stdout.writelines("\n[x] You're not registered as finalist")
             exit()
         else:
-            return f'server_snapshot_{host}', team_name
+            return team_name
+
 
 class Prompt(object):
     def __init__(self, username, password, host, port, team=''):
@@ -122,9 +130,13 @@ class Prompt(object):
     def start(self):
         try:
             self.connect()
-            stdout.writelines(f'[+] Logged in as {self.team}\n')
+            stdout.writelines(f'[+] Logged in')
+            stdout.writelines(f'[v] Machine IP: {self.host}')
+            stdout.writelines(f'[v] Team name: {self.team}\n')
         except Exception as e:
-            exit(str(e))
+            stdout.writelines('\n[x] Failed to connect to remote machine')
+            stdout.writelines(f'[?] Reason: {e}')
+            exit()
 
         while True:
             try:
@@ -143,16 +155,37 @@ class Prompt(object):
         return self.ssh.exec_command(command)[1:]
 
 
+def get_resolved_host(domain='snapshot'):
+    try:
+        query = Nslookup()
+        response = query.dns_lookup(domain)
+        
+        return sorted(response.answer)
+    
+    except:
+        logging.error('DNS not resolved')
+        exit()
+
 if __name__ == '__main__':
-    CTFd_url = 'https://ctf.joints.id'
+    ssh_user = 'user'
+    ssh_pass = 'joints21ulala'
+    ssh_port = 2222
+    ip_hosts = get_resolved_host()
+
+    mapped_host = dict(zip(FINALIST, ip_hosts))
 
     stdout.write('CTFd username: ')
     username = input()
     stdout.write('CTFd password: ')
     password = input()
 
-    s = Auth(username, password, CTFd_url)
-    host, team_name = s.get_user_team()
+    logging.info(f'Trying login as {username}')
 
-    p = Prompt('user', 'joints21ulala', host, 2222, team_name)
+    ssh = Auth(username, password, CTFd_URL)
+    team_name = ssh.get_user_team()
+    team_host = mapped_host[team_name]
+
+    logging.info(f'Successfully logged in')
+
+    p = Prompt(ssh_user, ssh_pass, team_host, ssh_port, team_name)
     p.start()
