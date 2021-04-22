@@ -2,6 +2,7 @@ version: '3'
 services:
   pyjail:
     build: .
+    image: server_pyjail
     restart: on-failure
     ports:
       - 22223:5000

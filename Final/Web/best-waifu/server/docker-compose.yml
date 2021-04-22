@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.app
+    image: server_waifu-terbaik-app
     restart: on-failure
     depends_on:
       - waifu-terbaik-mongo
@@ -14,6 +15,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.nginx
+    image: server_waifu-terbaik-nginx
     restart: on-failure
     ports:
       - "10003:80"
