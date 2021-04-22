@@ -34,7 +34,8 @@ services:
 
 networks:
   uwu-network:
-    driver: bridge
+    driver: overlay
+    attachable: true
 
 volumes:
   uwu-redis-volume:
