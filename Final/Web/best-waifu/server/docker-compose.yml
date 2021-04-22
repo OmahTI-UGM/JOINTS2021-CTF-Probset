@@ -30,4 +30,5 @@ services:
 
 networks:
   waifu-terbaik-network:
-    driver: bridge
+    driver: overlay
+    attachable: true
