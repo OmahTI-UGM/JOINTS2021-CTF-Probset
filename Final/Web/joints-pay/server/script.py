@@ -18,7 +18,7 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 driver = webdriver.Chrome(chrome_options=chrome_options)
 
 def wait_until(ec, by, value):
-    return WebDriverWait(driver, 30).until(ec((by, value)))
+    return WebDriverWait(driver, 60).until(ec((by, value)))
 
 url = "http://jointspay-nginx/"
 driver.get(url)
