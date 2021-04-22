@@ -58,9 +58,40 @@ Note, service nya masih hasil `trial & error`, jadi kemungkinan bisa broken sewa
 # Build
 $ docker-compose build
 
-# Deploy pake swarm ya, udah saya kecilin spec nya :v
-$ docker stack deploy --compose-file docker-compose.yml snapshot
+# Deploy
+# Bebas pilih salah satu
+
+# Non-swarm mode
+$ docker-compose up -d wrapper
+$ docker-compose --compatibility scale snapshot=15
+
+# Swarm mode
+$ docker stack deploy -c docker-compose.yml snapshot
+$ docker service scale snapshot_snapshot=15 
+
 ```
+
+## Service Test
+
+Script test ada di directory `test`. Misal ada node yang `error` bisa `restart service` atau re-`scale` lagi.
+
+```sh
+Sending command on test_soal15 -> Work
+Sending command on test_soal10 -> Work
+Sending command on test_soal3 -> Work
+Sending command on test_soal7 -> Work
+Sending command on test_soal11 -> Work
+Sending command on test_soal2 -> Work
+Sending command on test_soal8 -> Work
+Sending command on test_soal14 -> Work
+Sending command on test_soal13 -> Work
+Sending command on test_soal6 -> Work
+Sending command on test_soal1 -> Work
+Sending command on test_soal9 -> Work
+Sending command on test_soal12 -> Work
+Sending command on test_soal5 -> Work
+Sending command on test_soal4 -> Work
+``` 
 
 ## Flag
 JOINTS21{forw4rding_x11_traffics_4re_k1nda_fun_e1683a}
