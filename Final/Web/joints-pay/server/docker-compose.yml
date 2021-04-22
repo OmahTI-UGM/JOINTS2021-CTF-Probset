@@ -31,4 +31,5 @@ services:
 
 networks:
   jointspay-network:
-    driver: bridge
+    driver: overlay
+    attachable: true
