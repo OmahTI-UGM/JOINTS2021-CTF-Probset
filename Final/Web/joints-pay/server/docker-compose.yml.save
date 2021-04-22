@@ -13,8 +13,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.nginx
-    image: server_jointspay-nginx
-    restart: on-failure
+   
+ restart: on-failure
     ports:
       - "10001:80"
     networks:
@@ -24,7 +24,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.selenium
-    image: server_jointspay-selenium
     restart: on-failure
     networks:
       - jointspay-network

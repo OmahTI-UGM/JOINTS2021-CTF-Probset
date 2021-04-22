@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.app
+    image: server_uwu-app
     restart: on-failure
     networks:
       - uwu-network
@@ -14,6 +15,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.nginx
+    image: server_uwu-nginx
     restart: on-failure
     ports:
       - "10002:80"
@@ -26,6 +28,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.redis
+    image: server_uwu-redis
     restart: on-failure
     networks:
       - uwu-network
