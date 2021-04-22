@@ -16,7 +16,7 @@ services:
     deploy:
       mode: replicated
       endpoint_mode: dnsrr
-      replicas: 15
+      replicas: 0
       resources:
         reservations:
           cpus: '0.05'
@@ -26,6 +26,8 @@ services:
           memory: 128M
       restart_policy:
         condition: any
+    depends_on:
+      - wrapper
     networks:
       - snapshot-network
     cap_add:
