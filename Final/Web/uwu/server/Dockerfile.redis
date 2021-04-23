@@ -7,6 +7,8 @@ RUN useradd -u 1000 -ms /bin/bash -g www www
 
 COPY ./entrypoint-redis.sh /entrypoint-redis.sh
 
+RUN chmod +x /entrypoint-redis.sh
+
 # Change current user to www
 USER www
 ENTRYPOINT ["/entrypoint-redis.sh"]
