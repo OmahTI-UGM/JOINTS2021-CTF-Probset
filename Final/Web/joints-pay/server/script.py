@@ -21,7 +21,7 @@ def wait_until(ec, by, value):
     return WebDriverWait(driver, 60).until(ec((by, value)))
 
 url = "http://jointspay-nginx/"
-driver.get(url + 's3cr3t_c0d3?p=8682a65aa7f080e0d8511018a9f64d77')
+driver.get(url + 's3cr3t_c0d3.php?p=8682a65aa7f080e0d8511018a9f64d77')
 
 # loginDiscordXPath = "/html[1]/body[1]/div[1]/div[1]/a[1]/p[1]"
 # loginDiscordButton = wait_until(
